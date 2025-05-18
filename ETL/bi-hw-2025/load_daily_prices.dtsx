@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{D4B67CA1-3227-42DC-BD9E-B108B4062D91}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{8489CBFF-9093-4CBB-B5B4-54125F506265}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -115,23 +115,22 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{1E8DEFF5-E97A-46B7-921F-6F1D0E1B3EB9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="HardLimit">
+      <DTS:VariableValue
+        DTS:DataType="7">5/18/2025 10:58:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{612696CA-39CE-4A7A-A01A-7E001AF7ED61}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="MaxDate"
       DTS:RaiseChangedEvent="True">
       <DTS:VariableValue
-        DTS:DataType="7">5/18/2025 12:26:14 PM</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{1E8DEFF5-E97A-46B7-921F-6F1D0E1B3EB9}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="Variable">
-      <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="7">5/18/2025 12:26:00 PM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -413,13 +412,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\load new data\read csv.Outputs[Flat File Source Output].Columns[Date]} &gt; @[User::MaxDate]</property>
+                      name="Expression">#{Package\load new data\read csv.Outputs[Flat File Source Output].Columns[Date]} &gt; @[User::MaxDate] &amp;&amp; #{Package\load new data\read csv.Outputs[Flat File Source Output].Columns[Date]} &lt; @[User::HardLimit]</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">Date &gt; @[User::MaxDate]</property>
+                      name="FriendlyExpression">Date &gt; @[User::MaxDate] &amp;&amp; Date &lt; @[User::HardLimit]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1834,25 +1833,25 @@
         <NodeLayout
           Size="148,42"
           Id="Package\load max date"
-          TopLeft="383,111" />
+          TopLeft="394,110" />
         <NodeLayout
           Size="147,42"
           Id="Package\load new data"
           TopLeft="390,209" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="460.25,153">
+          TopLeft="465.75,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56"
+              EndConnector="0,57"
               Start="0,0"
-              End="0,48.5">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1870,33 +1869,13 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="127,42"
-          Id="Package\load new data\trim ticker"
-          TopLeft="241,348" />
-        <NodeLayout
-          Size="133,42"
-          Id="Package\load new data\Merge Join"
-          TopLeft="329.888888888889,518.888888888889" />
+          Size="139,42"
+          Id="Package\load new data\upload to db"
+          TopLeft="332.333333333333,588.222222222222" />
         <NodeLayout
           Size="218,42"
           Id="Package\load new data\filter row with missing values"
           TopLeft="190,173.888888888889" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\load new data\load tickers"
-          TopLeft="441.777777777778,255.666666666667" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\load new data\trim ticker 2"
-          TopLeft="434.666666666667,349.111111111111" />
-        <NodeLayout
-          Size="141,42"
-          Id="Package\load new data\sort by ticker"
-          TopLeft="234,428.666666666667" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\load new data\ensure valid ticker"
-          TopLeft="222,258" />
         <NodeLayout
           Size="150,42"
           Id="Package\load new data\sort by ticker 2"
@@ -1905,6 +1884,82 @@
           Size="120,42"
           Id="Package\load new data\read csv"
           TopLeft="244.888888888889,21.2222222222222" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\load new data\trim ticker"
+          TopLeft="241,348" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\load new data\Merge Join"
+          TopLeft="329.888888888889,518.888888888889" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\load new data\load tickers"
+          TopLeft="441.777777777778,255.666666666667" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\load new data\sort by ticker"
+          TopLeft="234,428.666666666667" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\load new data\filter uploaded rows"
+          TopLeft="217.666666666667,90.2222222222222" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\load new data\trim ticker 2"
+          TopLeft="434.666666666667,349.111111111111" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\load new data\ensure valid ticker"
+          TopLeft="222,258" />
+        <EdgeLayout
+          Id="Package\load new data.Paths[valid_row]"
+          TopLeft="302.5,215.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.1111111111111"
+              Start="0,0"
+              End="0,34.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.038046875,11.7743055555556,44.07609375,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load new data.Paths[ticker_valid]"
+          TopLeft="305.25,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.55537109375,14.71875,51.1107421875,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\load new data.Paths[Sort Output1]"
           TopLeft="504.111111111111,471.444444444444">
@@ -1965,6 +2020,74 @@
                     Point3="71.0555555555556,32.5894006934126" />
                   <mssgle:LineSegment
                     End="71.0555555555556,40.7222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load new data.Paths[new_data]"
+          TopLeft="301.833333333333,132.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6666666666667"
+              Start="0,0"
+              End="0,34.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.89998046875,11.5520833333333,43.7999609375,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load new data.Paths[Merge Join Output]"
+          TopLeft="399.111111111111,560.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.3333333333334"
+              Start="0,0"
+              End="0,19.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load new data.Paths[Flat File Source Output]"
+          TopLeft="304.777777777778,63.2222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2039,135 +2162,11 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\load new data.Paths[valid_row]"
-          TopLeft="302.5,215.888888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.1111111111111"
-              Start="0,0"
-              End="0,34.6111111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.6111111111111" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.038046875,11.7743055555556,44.07609375,11.0625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\load new data.Paths[ticker_valid]"
-          TopLeft="305.25,300">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.55537109375,14.71875,51.1107421875,11.0625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\load new data\upload to db"
-          TopLeft="332.333333333333,588.222222222222" />
-        <EdgeLayout
-          Id="Package\load new data.Paths[Merge Join Output]"
-          TopLeft="399.111111111111,560.888888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.3333333333334"
-              Start="0,0"
-              End="0,19.8333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.8333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\load new data\filter uploaded rows"
-          TopLeft="217.666666666667,90.2222222222222" />
-        <EdgeLayout
-          Id="Package\load new data.Paths[Flat File Source Output]"
-          TopLeft="304.777777777778,63.2222222222222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\load new data.Paths[new_data]"
-          TopLeft="301.833333333333,132.222222222222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.6666666666667"
-              Start="0,0"
-              End="0,34.1666666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.1666666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-21.89998046875,11.5520833333333,43.7999609375,11.0625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\load new data\load tickers">
+    design-time-name="Package\load new data\upload to db">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2175,7 +2174,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\load new data\upload to db">
+    design-time-name="Package\load new data\load tickers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

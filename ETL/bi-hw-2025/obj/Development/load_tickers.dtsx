@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="load_tickers"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{622C8D6C-98FC-4D3C-BDEE-8413509B80B5}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{2344BA49-0377-40D5-A5CC-E55A4231EB4A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2351,39 +2351,161 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="180,42"
-          Id="Package\upload to DB\upload DB (success)"
-          TopLeft="183,598" />
+          Size="175,42"
+          Id="Package\upload to DB\load existing tickers"
+          TopLeft="471,28" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\upload to DB\Transform Data"
-          TopLeft="318,424" />
+          Size="175,42"
+          Id="Package\upload to DB\filter existing tickers"
+          TopLeft="308,323" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\upload to DB\read csv"
+          TopLeft="168,32" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\upload to DB\Merge Join"
+          TopLeft="328,224" />
         <NodeLayout
           Size="167,42"
           Id="Package\upload to DB\upload DB (failed)"
           TopLeft="478,530" />
         <NodeLayout
+          Size="136,42"
+          Id="Package\upload to DB\sort ticker 1"
+          TopLeft="156,125" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\upload to DB\upload DB (success)"
+          TopLeft="183,598" />
+        <NodeLayout
           Size="202,42"
           Id="Package\upload to DB\Remove duplicate tickers"
-          TopLeft="176,528" />
+          TopLeft="176,513" />
         <NodeLayout
-          Size="120,42"
-          Id="Package\upload to DB\read csv"
-          TopLeft="168,32" />
+          Size="155,42"
+          Id="Package\upload to DB\Transform Data"
+          TopLeft="318,424" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\upload to DB\sort ticker 2"
+          TopLeft="490,121" />
         <EdgeLayout
-          Id="Package\upload to DB.Paths[Sort Output]"
-          TopLeft="275,570">
+          Id="Package\upload to DB.Paths[Sort Output1]"
+          TopLeft="224,167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="170.5,57"
               Start="0,0"
-              End="0,20.5">
+              End="170.5,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="166.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="166.5,28.5"
+                    Point2="170.5,28.5"
+                    Point3="170.5,32.5" />
+                  <mssgle:LineSegment
+                    End="170.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\upload to DB.Paths[Sort Output]"
+          TopLeft="275,555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\upload to DB.Paths[new_data]"
+          TopLeft="395.5,365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.89998046875,20.21875,43.7999609375,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\upload to DB.Paths[Merge Join Output]"
+          TopLeft="395,266">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\upload to DB.Paths[Flat File Source Output]"
+          TopLeft="226,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2398,26 +2520,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-94,62"
+              EndConnector="-94,47"
               Start="0,0"
-              End="-94,54.5">
+              End="-94,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1800766283525" />
+                    End="0,15.088122605364" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.1800766283525"
-                    Point2="0,25.1800766283525"
-                    Point3="-4,25.1800766283525" />
+                    Point1="0,15.088122605364"
+                    Point2="0,19.088122605364"
+                    Point3="-4,19.088122605364" />
                   <mssgle:LineSegment
-                    End="-90,25.1800766283525" />
+                    End="-90,19.088122605364" />
                   <mssgle:CubicBezierSegment
-                    Point1="-90,25.1800766283525"
-                    Point2="-94,25.1800766283525"
-                    Point3="-94,29.1800766283525" />
+                    Point1="-90,19.088122605364"
+                    Point2="-94,19.088122605364"
+                    Point3="-94,23.088122605364" />
                   <mssgle:LineSegment
-                    End="-94,54.5" />
+                    End="-94,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2462,40 +2584,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\upload to DB\load existing tickers"
-          TopLeft="471,28" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\upload to DB\sort ticker 1"
-          TopLeft="156,125" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\upload to DB\sort ticker 2"
-          TopLeft="490,121" />
-        <EdgeLayout
-          Id="Package\upload to DB.Paths[Flat File Source Output]"
-          TopLeft="226,74">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\upload to DB.Paths[ADO NET Source Output]"
           TopLeft="558.25,70">
@@ -2510,44 +2598,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\upload to DB\Merge Join"
-          TopLeft="328,224" />
-        <EdgeLayout
-          Id="Package\upload to DB.Paths[Sort Output1]"
-          TopLeft="224,167">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="170.5,57"
-              Start="0,0"
-              End="170.5,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5"
-                    Point2="0,28.5"
-                    Point3="4,28.5" />
-                  <mssgle:LineSegment
-                    End="166.5,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166.5,28.5"
-                    Point2="170.5,28.5"
-                    Point3="170.5,32.5" />
-                  <mssgle:LineSegment
-                    End="170.5,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2590,61 +2640,11 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\upload to DB\filter existing tickers"
-          TopLeft="308,323" />
-        <EdgeLayout
-          Id="Package\upload to DB.Paths[Merge Join Output]"
-          TopLeft="395,266">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57"
-              Start="0,0"
-              End="0,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\upload to DB.Paths[new_data]"
-          TopLeft="395.5,365">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-21.89998046875,20.21875,43.7999609375,11.0625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\upload to DB\upload DB (success)">
+    design-time-name="Package\upload to DB\load existing tickers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2660,7 +2660,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\upload to DB\load existing tickers">
+    design-time-name="Package\upload to DB\upload DB (success)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
