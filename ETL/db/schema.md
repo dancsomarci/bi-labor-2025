@@ -30,13 +30,13 @@ Table index_predictions {
   fact_id integer [ref: > daily_prices.id]
   date date
   
-  close_pred_1d float
-  close_pred_5d float
-  close_pred_21d float
+  pred_1d float
+  pred_5d float
+  pred_21d float
 
-  close_true_1d float
-  close_true_5d float
-  close_true_21d float
+  true_1d float
+  true_5d float
+  true_21d float
 }
 
 Table monthly_agg {

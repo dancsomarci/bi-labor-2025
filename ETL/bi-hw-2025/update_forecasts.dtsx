@@ -11,20 +11,49 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{3D0B2C2C-1464-4018-85DC-2301B1613516}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{8F194C91-63F9-4BC5-8E4E-B4A26F7D2684}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{9117FE42-3EDF-4037-B1CA-1C2AAE5CD0F4}"
+      DTS:ObjectName="(localdb)\mssqllocaldb.AZTVS7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=AZTVS7;Integrated Security=True;Application Name=SSIS-Package1-{9117FE42-3EDF-4037-B1CA-1C2AAE5CD0F4}(localdb)\mssqllocaldb.AZTVS7;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute Process Task"
+      DTS:refId="Package\denormalize predictions table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CE514CA9-9599-4822-A1F8-5C5C76E7F21D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="denormalize predictions table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9117FE42-3EDF-4037-B1CA-1C2AAE5CD0F4}"
+          SQLTask:SqlStatementSource="WITH FuturePrices AS (&#xA;    SELECT&#xA;        id AS daily_price_id,&#xA;        [date],&#xA;        LEAD([close], 1) OVER (ORDER BY [date]) AS true_1d,&#xA;        LEAD([close], 5) OVER (ORDER BY [date]) AS true_5d,&#xA;        LEAD([close], 21) OVER (ORDER BY [date]) AS true_21d&#xA;    FROM daily_prices&#xA;    WHERE ticker_id IS NULL&#xA;)&#xA;UPDATE [ip]&#xA;SET&#xA;    [ip].real_1d = fp.true_1d,&#xA;    [ip].real_5d = fp.true_5d,&#xA;    [ip].real_21d = fp.true_21d&#xA;FROM index_predictions [ip]&#xA;JOIN FuturePrices fp&#xA;    ON [ip].daily_price_id = fp.daily_price_id&#xA;WHERE [ip].real_21d is NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\run forecast python script"
       DTS:CreationName="Microsoft.ExecuteProcess"
       DTS:Description="Execute Process Task"
       DTS:DTSID="{16FD39AB-5C3B-48A7-BA29-48D6CD599EEC}"
       DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute Process Task"
+      DTS:ObjectName="run forecast python script"
       DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -36,6 +65,16 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7E35164-8094-493A-9801-C4F17EA2524D}"
+      DTS:From="Package\run forecast python script"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\denormalize predictions table" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -47,11 +86,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188,42"
-          Id="Package\Execute Process Task"
+          Size="202,42"
+          Id="Package\run forecast python script"
           TopLeft="403,117" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\denormalize predictions table"
+          TopLeft="392,214" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="503.5,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

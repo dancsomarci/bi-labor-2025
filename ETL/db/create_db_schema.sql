@@ -39,4 +39,7 @@ CREATE TABLE index_predictions (
     pred_1d FLOAT,
     pred_5d FLOAT,
     pred_21d FLOAT,
+    real_1d FLOAT,
+    real_5d FLOAT,
+    real_21d FLOAT,
 );
