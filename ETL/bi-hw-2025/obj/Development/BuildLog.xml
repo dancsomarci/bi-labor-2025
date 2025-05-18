@@ -2,18 +2,33 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>bi-hw-2025</Name>
-    <LastWriteTime>2025-05-17T21:02:38.5211688Z</LastWriteTime>
+    <LastWriteTime>2025-05-18T10:42:20.6767369Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>load_tickers.dtsx</Name>
-      <LastWriteTime>2025-05-17T18:24:27.0042559Z</LastWriteTime>
+      <LastWriteTime>2025-05-18T10:37:33.7714549Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>load_daily_prices.dtsx</Name>
-      <LastWriteTime>2025-05-17T22:01:35.5012676Z</LastWriteTime>
+      <LastWriteTime>2025-05-18T10:56:55.4948606Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>update_aggregate.dtsx</Name>
+      <LastWriteTime>2025-05-18T09:30:34.4497984Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>update_forecasts.dtsx</Name>
+      <LastWriteTime>2025-05-18T09:33:09.9502425Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>main.dtsx</Name>
+      <LastWriteTime>2025-05-18T10:42:19.9911168Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

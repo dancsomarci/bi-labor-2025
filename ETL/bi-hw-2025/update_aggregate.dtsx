@@ -1,0 +1,70 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/18/2025 11:29:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-DA3CO27"
+  DTS:CreatorName="DESKTOP-DA3CO27\MDancso"
+  DTS:DTSID="{29897D92-FB01-4A3F-AE8D-6317650112A4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="update_aggregate"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{5607E046-9EBB-4B9A-AB5F-D441D2B047B9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{E4FDD062-F65E-4968-8E5C-3268DF6C631D}"
+      DTS:ObjectName="(localdb)\mssqllocaldb.AZTVS7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=AZTVS7;Integrated Security=True;Application Name=SSIS-update_aggregate-{E4FDD062-F65E-4968-8E5C-3268DF6C631D}(localdb)\mssqllocaldb.AZTVS7;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\update monthly_agg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ab3bcbd0-4a45-4776-ba61-814825265d23}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="update monthly_agg"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E4FDD062-F65E-4968-8E5C-3268DF6C631D}"
+          SQLTask:SqlStatementSource="-- Step 1: Get the latest aggregated date&#xA;DECLARE @latest_aggregated_date DATE = (&#xA;    SELECT ISNULL(MAX(last_trading_day), '1900-01-01') FROM monthly_agg&#xA;);&#xA;&#xA;-- Step 2: Compute the first day of the current month (to avoid partial months)&#xA;DECLARE @current_month_start DATE = DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1);&#xA;&#xA;-- Step 3: Insert aggregates for months fully after @latest_aggregated_date and before the current month&#xA;INSERT INTO monthly_agg (&#xA;  ticker_id,&#xA;  last_trading_day,&#xA;  min_open,&#xA;  max_high,&#xA;  min_low,&#xA;  max_close,&#xA;  total_volume,&#xA;  cumulative_return&#xA;)&#xA;SELECT&#xA;  ticker_id,&#xA;  MAX([date]) AS last_trading_day,&#xA;  MIN([open]) AS min_open,&#xA;  MAX([high]) AS max_high,&#xA;  MIN([low]) AS min_low,&#xA;  MAX([close]) AS max_close,&#xA;  SUM([volume]) AS total_volume,&#xA;  (MAX([close]) / MIN([open])) - 1 AS cumulative_return&#xA;FROM daily_prices&#xA;WHERE&#xA;  [date] &gt; @latest_aggregated_date AND [date] &lt; @current_month_start&#xA;GROUP BY&#xA;  ticker_id,&#xA;  DATEFROMPARTS(YEAR([date]), MONTH([date]), 1);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\update monthly_agg"
+          TopLeft="417,136" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\BME\\projects\\bi-labor-2025\\ETL\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_forecasts.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|solutionrelative:bi-hw-2025\\update_forecasts.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_aggregate.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|solutionrelative:bi-hw-2025\\update_aggregate.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_daily_prices.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
       "RelativeMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|solutionrelative:bi-hw-2025\\load_daily_prices.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_tickers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|solutionrelative:bi-hw-2025\\load_tickers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\main.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{87B17404-C8F0-2127-8392-94ADDF96C903}|bi-hw-2025\\bi-hw-2025.dtproj|solutionrelative:bi-hw-2025\\main.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,18 +30,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.dtsx [Design]",
+              "DocumentMoniker": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\main.dtsx",
+              "RelativeDocumentMoniker": "bi-hw-2025\\main.dtsx",
+              "ToolTip": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\main.dtsx [Design]",
+              "RelativeToolTip": "bi-hw-2025\\main.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-05-18T10:39:30.721Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "update_aggregate.dtsx [Design]",
+              "DocumentMoniker": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_aggregate.dtsx",
+              "RelativeDocumentMoniker": "bi-hw-2025\\update_aggregate.dtsx",
+              "ToolTip": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_aggregate.dtsx [Design]",
+              "RelativeToolTip": "bi-hw-2025\\update_aggregate.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-05-18T10:39:24.398Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "update_forecasts.dtsx [Design]",
+              "DocumentMoniker": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_forecasts.dtsx",
+              "RelativeDocumentMoniker": "bi-hw-2025\\update_forecasts.dtsx",
+              "ToolTip": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\update_forecasts.dtsx [Design]",
+              "RelativeToolTip": "bi-hw-2025\\update_forecasts.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-05-18T10:39:20.75Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "load_tickers.dtsx [Design]",
+              "DocumentMoniker": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_tickers.dtsx",
+              "RelativeDocumentMoniker": "bi-hw-2025\\load_tickers.dtsx",
+              "ToolTip": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_tickers.dtsx [Design]",
+              "RelativeToolTip": "bi-hw-2025\\load_tickers.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-05-18T10:39:18.279Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "load_daily_prices.dtsx [Design]",
               "DocumentMoniker": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_daily_prices.dtsx",
               "RelativeDocumentMoniker": "bi-hw-2025\\load_daily_prices.dtsx",
               "ToolTip": "C:\\BME\\projects\\bi-labor-2025\\ETL\\bi-hw-2025\\load_daily_prices.dtsx [Design]",
               "RelativeToolTip": "bi-hw-2025\\load_daily_prices.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-05-17T21:02:29.906Z",
+              "WhenOpened": "2025-05-18T10:04:14.205Z",
               "EditorCaption": " [Design]"
             }
           ]
