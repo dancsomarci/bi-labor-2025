@@ -1,0 +1,2277 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/17/2025 8:08:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-DA3CO27"
+  DTS:CreatorName="DESKTOP-DA3CO27\MDancso"
+  DTS:DTSID="{A94B2143-E276-4C36-A334-7B6AF83CB898}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{05CB2BC5-0418-4878-AF9C-641EC021968F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8A25C9DB-36BB-4F9E-9DB7-96ED78A91A68}"
+      DTS:ObjectName="(localdb)\mssqllocaldb.AZTVS7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=AZTVS7;Integrated Security=True;Application Name=SSIS-Package1-{8A25C9DB-36BB-4F9E-9DB7-96ED78A91A68}(localdb)\mssqllocaldb.AZTVS7;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[daily_prices_connection_manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D9886E94-E73F-404B-B88E-7CD230054E5A}"
+      DTS:ObjectName="daily_prices_connection_manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\BME\projects\bi-labor-2025\raw_data\sp500_daily_prices.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{C3392E3C-D8A2-4D77-A492-82D111F4F0C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ticker"
+              DTS:DTSID="{0581E6F6-7809-4FD5-9E69-F3E10EAF69A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Open"
+              DTS:DTSID="{C7EE05A8-8027-4876-82AD-E1727D184729}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="High"
+              DTS:DTSID="{2162E450-9E74-49E1-B49A-9895499CB0B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Low"
+              DTS:DTSID="{476A87CD-B69C-40B2-BB22-8CC1D4797198}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Close"
+              DTS:DTSID="{367D61B3-5752-4905-ABC3-22A13077EEDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Volume"
+              DTS:DTSID="{8132F5A9-FD10-4FAC-88B4-DECCE24D9E51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Return"
+              DTS:DTSID="{0A6A178B-058B-49F2-8D22-E1C9011A16D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MA_20"
+              DTS:DTSID="{05E7B917-BEE5-403A-935C-E64D1E33FB7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Volatility_20"
+              DTS:DTSID="{BF7D3386-1088-4DF2-96E4-C109E402C853}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ECF77DC5-5EA7-41F3-8E5D-030453E44FFE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load data\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."daily_prices"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ticker_id]"
+                      cachedDataType="i4"
+                      cachedName="ticker_id"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ticker_id]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[ticker_id]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Ticker]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Ticker"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ticker]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Ticker]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Open]"
+                      cachedDataType="r4"
+                      cachedName="Open"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[open]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Open]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[High]"
+                      cachedDataType="r4"
+                      cachedName="High"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[high]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[High]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Low]"
+                      cachedDataType="r4"
+                      cachedName="Low"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[low]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Low]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Close]"
+                      cachedDataType="r4"
+                      cachedName="Close"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[close]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Close]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Volume]"
+                      cachedDataType="i8"
+                      cachedName="Volume"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[volume]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volume]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Return]"
+                      cachedDataType="r4"
+                      cachedName="Return"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[return]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Return]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[MA_20]"
+                      cachedDataType="r4"
+                      cachedName="MA_20"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ma_20]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[MA_20]" />
+                    <inputColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Volatility_20]"
+                      cachedDataType="r4"
+                      cachedName="Volatility_20"
+                      externalMetadataColumnId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[volatility_20]"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volatility_20]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ticker_id]"
+                      dataType="i4"
+                      name="ticker_id" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ticker]"
+                      dataType="wstr"
+                      length="50"
+                      name="ticker" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[open]"
+                      dataType="r8"
+                      name="open" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[high]"
+                      dataType="r8"
+                      name="high" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[low]"
+                      dataType="r8"
+                      name="low" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[close]"
+                      dataType="r8"
+                      name="close" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[volume]"
+                      dataType="i8"
+                      name="volume" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[return]"
+                      dataType="r8"
+                      name="return" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ma_20]"
+                      dataType="r8"
+                      name="ma_20" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[volatility_20]"
+                      dataType="r8"
+                      name="volatility_20" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select distinct id, ticker from tickers</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\mssqllocaldb.AZTVS7]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[ticker]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ticker]"
+                      length="50"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[ticker]"
+                      name="ticker"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ticker]"
+                      dataType="wstr"
+                      length="50"
+                      name="ticker" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ticker]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ticker]"
+                      name="ticker" />
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\ensure valid ticker"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="ensure valid ticker"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input].Columns[Ticker]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Ticker"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\ensure valid ticker.Outputs[ticker_valid]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ticker_valid"
+                  synchronousInputId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]}) &amp;&amp; [LEN](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]}) &gt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Ticker) &amp;&amp; LEN(Ticker) &gt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\ensure valid ticker.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\ensure valid ticker.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\ensure valid ticker.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\ensure valid ticker.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\ensure valid ticker.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\ensure valid ticker.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\filter row with missing values"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="filter row with missing values"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Open]"
+                      cachedDataType="r4"
+                      cachedName="Open"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[High]"
+                      cachedDataType="r4"
+                      cachedName="High"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Low]"
+                      cachedDataType="r4"
+                      cachedName="Low"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Close]"
+                      cachedDataType="r4"
+                      cachedName="Close"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Volume]"
+                      cachedDataType="i8"
+                      cachedName="Volume"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Return]"
+                      cachedDataType="r4"
+                      cachedName="Return"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[MA_20]"
+                      cachedDataType="r4"
+                      cachedName="MA_20"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]" />
+                    <inputColumn
+                      refId="Package\load data\filter row with missing values.Inputs[Conditional Split Input].Columns[Volatility_20]"
+                      cachedDataType="r4"
+                      cachedName="Volatility_20"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\filter row with missing values.Outputs[valid_row]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="valid_row"
+                  synchronousInputId="Package\load data\filter row with missing values.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]}) &amp;&amp; ![ISNULL](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Open) &amp;&amp; !ISNULL(High) &amp;&amp; !ISNULL(Low) &amp;&amp; !ISNULL(Close) &amp;&amp; !ISNULL(Volume) &amp;&amp; !ISNULL(Return) &amp;&amp; !ISNULL(MA_20) &amp;&amp; !ISNULL(Volatility_20)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\filter row with missing values.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\load data\filter row with missing values.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\filter row with missing values.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\load data\filter row with missing values.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\filter row with missing values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\filter row with missing values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\filter row with missing values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\filter row with missing values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\load data\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Ticker]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Ticker"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Ticker]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Open]"
+                      cachedDataType="r4"
+                      cachedName="Open"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Open]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[High]"
+                      cachedDataType="r4"
+                      cachedName="High"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[High]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Low]"
+                      cachedDataType="r4"
+                      cachedName="Low"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Low]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Close]"
+                      cachedDataType="r4"
+                      cachedName="Close"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Close]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Volume]"
+                      cachedDataType="i8"
+                      cachedName="Volume"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volume]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Return]"
+                      cachedDataType="r4"
+                      cachedName="Return"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Return]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[MA_20]"
+                      cachedDataType="r4"
+                      cachedName="MA_20"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[MA_20]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Volatility_20]"
+                      cachedDataType="r4"
+                      cachedName="Volatility_20"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volatility_20]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\load data\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Right Input].Columns[ticker]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ticker"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[ticker]" />
+                    <inputColumn
+                      refId="Package\load data\Merge Join.Inputs[Merge Join Right Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Date]"
+                      name="Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[ticker_id]"
+                      dataType="i4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[ticker_id]"
+                      name="ticker_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Right Input].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Ticker]"
+                      codePage="65001"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Ticker]"
+                      name="Ticker"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Ticker]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Open]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Open]"
+                      name="Open">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Open]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[High]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[High]"
+                      name="High">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[High]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Low]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Low]"
+                      name="Low">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Low]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Close]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Close]"
+                      name="Close">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Close]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volume]"
+                      dataType="i8"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volume]"
+                      name="Volume">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Volume]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Return]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Return]"
+                      name="Return">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Return]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[MA_20]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[MA_20]"
+                      name="MA_20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[MA_20]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volatility_20]"
+                      dataType="r4"
+                      lineageId="Package\load data\Merge Join.Outputs[Merge Join Output].Columns[Volatility_20]"
+                      name="Volatility_20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\load data\Merge Join.Inputs[Merge Join Left Input].Columns[Volatility_20]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\read csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="read csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data\read csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[daily_prices_connection_manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[daily_prices_connection_manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data\read csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Ticker]"
+                      length="10"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]"
+                      name="Ticker"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]"
+                      name="Open"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]"
+                      name="High"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]"
+                      name="Low"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]"
+                      name="Close"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]"
+                      name="Volume"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Return]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]"
+                      name="Return"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[MA_20]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]"
+                      name="MA_20"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Volatility_20]"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]"
+                      name="Volatility_20"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Ticker]"
+                      codePage="65001"
+                      dataType="str"
+                      length="10"
+                      name="Ticker" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      dataType="r4"
+                      name="Open" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      dataType="r4"
+                      name="High" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      dataType="r4"
+                      name="Low" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      dataType="r4"
+                      name="Close" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      dataType="i8"
+                      name="Volume" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Return]"
+                      dataType="r4"
+                      name="Return" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[MA_20]"
+                      dataType="r4"
+                      name="MA_20" />
+                    <externalMetadataColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Output].ExternalColumns[Volatility_20]"
+                      dataType="r4"
+                      name="Volatility_20" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data\read csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\sort by ticker"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="sort by ticker"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\load data\sort by ticker.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Ticker]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Ticker"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Open]"
+                      cachedDataType="r4"
+                      cachedName="Open"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[High]"
+                      cachedDataType="r4"
+                      cachedName="High"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Low]"
+                      cachedDataType="r4"
+                      cachedName="Low"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Close]"
+                      cachedDataType="r4"
+                      cachedName="Close"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Volume]"
+                      cachedDataType="i8"
+                      cachedName="Volume"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Return]"
+                      cachedDataType="r4"
+                      cachedName="Return"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[MA_20]"
+                      cachedDataType="r4"
+                      cachedName="MA_20"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker.Inputs[Sort Input].Columns[Volatility_20]"
+                      cachedDataType="r4"
+                      cachedName="Volatility_20"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\sort by ticker.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Date]"
+                      name="Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Ticker]"
+                      codePage="65001"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Ticker]"
+                      name="Ticker"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Open]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Open]"
+                      name="Open">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Open]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[High]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[High]"
+                      name="High">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[High]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Low]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Low]"
+                      name="Low">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Low]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Close]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Close]"
+                      name="Close">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Close]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volume]"
+                      dataType="i8"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volume]"
+                      name="Volume">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volume]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Return]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Return]"
+                      name="Return">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Return]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[MA_20]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[MA_20]"
+                      name="MA_20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[MA_20]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volatility_20]"
+                      dataType="r4"
+                      lineageId="Package\load data\sort by ticker.Outputs[Sort Output].Columns[Volatility_20]"
+                      name="Volatility_20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Volatility_20]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\sort by ticker 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="sort by ticker 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\load data\sort by ticker 2.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker 2.Inputs[Sort Input].Columns[ticker]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ticker"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[ticker]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data\sort by ticker 2.Inputs[Sort Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\sort by ticker 2.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[ticker]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[ticker]"
+                      name="ticker"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[ticker]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load data\sort by ticker 2.Outputs[Sort Output].Columns[id]"
+                      name="id"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\trim ticker"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="trim ticker"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data\trim ticker.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\trim ticker.Inputs[Derived Column Input].Columns[Ticker]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Ticker"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\load data\read csv.Outputs[Flat File Source Output].Columns[Ticker]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Ticker)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\trim ticker.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\load data\trim ticker.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\trim ticker.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\load data\trim ticker.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\trim ticker.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\trim ticker.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\trim ticker.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\trim ticker.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\trim ticker 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="trim ticker 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data\trim ticker 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\trim ticker 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\load data\trim ticker 2.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data\trim ticker 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\load data\trim ticker 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\trim ticker 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\trim ticker 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\trim ticker 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\trim ticker 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load data.Paths[ADO NET Source Output]"
+              endId="Package\load data\trim ticker 2.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\load data\ADO NET Source.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\load data.Paths[Derived Column Output]"
+              endId="Package\load data\sort by ticker 2.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\load data\trim ticker 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\load data.Paths[Derived Column Output1]"
+              endId="Package\load data\sort by ticker.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\load data\trim ticker.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\load data.Paths[Flat File Source Output]"
+              endId="Package\load data\filter row with missing values.Inputs[Conditional Split Input]"
+              name="Flat File Source Output"
+              startId="Package\load data\read csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\load data.Paths[Merge Join Output]"
+              endId="Package\load data\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="Merge Join Output"
+              startId="Package\load data\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\load data.Paths[Sort Output]"
+              endId="Package\load data\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\load data\sort by ticker.Outputs[Sort Output]" />
+            <path
+              refId="Package\load data.Paths[Sort Output1]"
+              endId="Package\load data\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\load data\sort by ticker 2.Outputs[Sort Output]" />
+            <path
+              refId="Package\load data.Paths[ticker_valid]"
+              endId="Package\load data\trim ticker.Inputs[Derived Column Input]"
+              name="ticker_valid"
+              startId="Package\load data\ensure valid ticker.Outputs[ticker_valid]" />
+            <path
+              refId="Package\load data.Paths[valid_row]"
+              endId="Package\load data\ensure valid ticker.Inputs[Conditional Split Input]"
+              name="valid_row"
+              startId="Package\load data\filter row with missing values.Outputs[valid_row]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate daily_prices"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A94411AA-64DA-47F5-B142-8FCBE9AE3F4D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate daily_prices"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A25C9DB-36BB-4F9E-9DB7-96ED78A91A68}"
+          SQLTask:SqlStatementSource="truncate table daily_prices" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\update monthly_agg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5802E060-CE71-4276-A850-3756D1EB9DA7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="update monthly_agg"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A25C9DB-36BB-4F9E-9DB7-96ED78A91A68}"
+          SQLTask:SqlStatementSource="-- Step 1: Get the latest aggregated date&#xA;DECLARE @latest_aggregated_date DATE = (&#xA;    SELECT ISNULL(MAX(last_trading_day), '1900-01-01') FROM monthly_agg&#xA;);&#xA;&#xA;-- Step 2: Compute the first day of the current month (to avoid partial months)&#xA;DECLARE @current_month_start DATE = DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1);&#xA;&#xA;-- Step 3: Insert aggregates for months fully after @latest_aggregated_date and before the current month&#xA;INSERT INTO monthly_agg (&#xA;  ticker_id,&#xA;  last_trading_day,&#xA;  min_open,&#xA;  max_high,&#xA;  min_low,&#xA;  max_close,&#xA;  total_volume,&#xA;  cumulative_return&#xA;)&#xA;SELECT&#xA;  ticker_id,&#xA;  MAX([date]) AS last_trading_day,&#xA;  MIN([open]) AS min_open,&#xA;  MAX([high]) AS max_high,&#xA;  MIN([low]) AS min_low,&#xA;  MAX([close]) AS max_close,&#xA;  SUM([volume]) AS total_volume,&#xA;  (MAX([close]) / MIN([open])) - 1 AS cumulative_return&#xA;FROM daily_prices&#xA;WHERE&#xA;  [date] &gt; @latest_aggregated_date AND [date] &lt; @current_month_start&#xA;GROUP BY&#xA;  ticker_id,&#xA;  DATEFROMPARTS(YEAR([date]), MONTH([date]), 1);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0B2ADCC7-BEA5-4B06-9691-197612C88638}"
+      DTS:From="Package\truncate daily_prices"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\load data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{904DAF5F-C6B4-4D5C-8D3B-09B4B7D3FF4A}"
+      DTS:From="Package\load data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\update monthly_agg" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\load data"
+          TopLeft="413,209" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\truncate daily_prices"
+          TopLeft="389,113" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="477,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\update monthly_agg"
+          TopLeft="392,310" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="478.25,251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\load data\filter row with missing values"
+          TopLeft="190,155" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\load data\trim ticker 2"
+          TopLeft="458,348" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\load data\sort by ticker 2"
+          TopLeft="458,465" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\load data\read csv"
+          TopLeft="240,55" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\load data\sort by ticker"
+          TopLeft="234,462" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\load data\trim ticker"
+          TopLeft="241,348" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\load data\ensure valid ticker"
+          TopLeft="222,258" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\load data\ADO NET Source"
+          TopLeft="444,206" />
+        <EdgeLayout
+          Id="Package\load data.Paths[valid_row]"
+          TopLeft="302.5,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.038046875,21.21875,44.07609375,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[ticker_valid]"
+          TopLeft="305.25,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.55537109375,14.71875,51.1107421875,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[Flat File Source Output]"
+          TopLeft="299.5,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[Derived Column Output1]"
+          TopLeft="304.5,390">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[Derived Column Output]"
+          TopLeft="529.5,390">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[ADO NET Source Output]"
+          TopLeft="526.5,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100"
+              Start="0,0"
+              End="0,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\load data\Merge Join"
+          TopLeft="351,589" />
+        <EdgeLayout
+          Id="Package\load data.Paths[Sort Output]"
+          TopLeft="304.5,504">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,85"
+              Start="0,0"
+              End="113,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="4,42.5" />
+                  <mssgle:LineSegment
+                    End="109,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109,42.5"
+                    Point2="113,42.5"
+                    Point3="113,46.5" />
+                  <mssgle:LineSegment
+                    End="113,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data.Paths[Sort Output1]"
+          TopLeft="533,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94.6666666666667,82"
+              Start="0,0"
+              End="-94.6666666666667,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6151560178306" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.6151560178306"
+                    Point2="0,48.6151560178306"
+                    Point3="-4,48.6151560178306" />
+                  <mssgle:LineSegment
+                    End="-90.6666666666667,48.6151560178306" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-90.6666666666667,48.6151560178306"
+                    Point2="-94.6666666666667,48.6151560178306"
+                    Point3="-94.6666666666667,52.6151560178306" />
+                  <mssgle:LineSegment
+                    End="-94.6666666666667,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\load data\ADO NET Destination"
+          TopLeft="332,693" />
+        <EdgeLayout
+          Id="Package\load data.Paths[Merge Join Output]"
+          TopLeft="421.25,631">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
